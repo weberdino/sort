@@ -5,17 +5,12 @@ using UnityEngine;
 public class BuffAbility : AbilityCore
 {
     public int test;
-    void Update()
-    {
-        if (AbilityManagerNew.instance.button)
-        {
-            if (isReady())
-            {
-                use();
 
-                test = 10;
-            }
-        }
+    public override void use()
+    {
+        base.use();
+        Debug.Log("testB");
+        test = 10;
     }
 
     public override void setBack()

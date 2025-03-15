@@ -16,7 +16,7 @@ public class AbilityCore : MonoBehaviour
         return Time.time - currentCd >=  maxCd;
     }
 
-    public void use()
+    public virtual void use()
     {
         if (isReady())
         {

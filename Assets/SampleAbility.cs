@@ -4,26 +4,34 @@ using UnityEngine;
 
 public class SampleAbility : AbilityCore
 {
-    public int test;
-
-    // Start is called before the first frame update
-    void Start()
+    public int test; 
+    /*void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isReady())
+        if (AbilityManagerNew.instance.button)
         {
-            Debug.Log("do stuff now");
-            test = 10;
+            if (isReady())
+            {
+                use();
+                
+            }
         }
+    }*/
+
+    public override void use()
+    {
+        base.use();
+        Debug.Log("do stuff now");
+        test = 10;
     }
 
     public override void setBack()
     {
+        base.setBack();
+    }
+
+    public override void resetDuration()
+    {
+        base.resetDuration();
         test -= 10;
     }
 }

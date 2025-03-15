@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class abilityHierarchie : MonoBehaviour
 {
-    public List<GameObject> hierarchies = new List<GameObject>();
+    public List<GameObject> hierarchies;
+    public List<GameObject> always;
 
-    void loadList()
+    private void FixedUpdate()
     {
-        foreach (Transform child in gameObject.transform)
+        if (AbilityManagerNew.instance.button)
         {
-            child.gameObject.SetActive(false);
+            loadList();
         }
+    }
 
+    public void loadList()
+    {
 
         for (int i = 0; i < hierarchies.Count; i++)
         {
-            hierarchies[i].SetActive(true);
+            GameObject hierarchie = hierarchies[i];
+            AbilityCore ac = hierarchie.GetComponent<AbilityCore>();
+
+            Debug.Log(ac.name + hierarchies.Count);
+            if (ac.isReady())
+            {
+                Debug.Log("->" + ac.name);
+                ac.use();
+                return;
+            }
+            
         }
+    }
+
+    void unloadList()
+    {
+        //
     }
 }

@@ -6,22 +6,16 @@ public class ChhargeAbility : AbilityCore
 {
     bool activated = false;
 
-    void Update()
+    public override void use()
     {
-        bool button = AbilityManagerNew.instance.button;
+        if (!activated)
+        {
+            activated = true;
+        }
 
-        if (button)
-        {
-            if (isReady())
-            {
-                activated = true;
-            }
-        }
-        else if (activated)
-        {
-            use();
-            activated = false;
-        }
+        base.use();
+        Debug.Log("testC");
+
     }
 
     public override void setBack()
