@@ -14,13 +14,12 @@ public class ChhargeAbility : AbilityCore
         }
 
         base.use();
-        Debug.Log("testC");
 
     }
 
-    public override void setBack()
+    public override void resetCooldown()
     {
-        base.setBack();
+        base.resetCooldown();
     }
     public override void resetDuration()
     {

@@ -23,10 +23,8 @@ public class abilityHierarchie : MonoBehaviour
             GameObject hierarchie = hierarchies[i];
             AbilityCore ac = hierarchie.GetComponent<AbilityCore>();
 
-            Debug.Log(ac.name + hierarchies.Count);
-            if (ac.isReady())
+            if (ac.noCooldown())
             {
-                Debug.Log("->" + ac.name);
                 ac.use();
                 return;
             }

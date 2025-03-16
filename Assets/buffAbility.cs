@@ -9,13 +9,14 @@ public class BuffAbility : AbilityCore
     public override void use()
     {
         base.use();
-        Debug.Log("testB");
+        Debug.Log("do stuff now");
+
         test = 10;
     }
 
-    public override void setBack()
+    public override void resetCooldown()
     {
-        base.setBack();
+        base.resetCooldown();
     }
 
     public override void resetDuration()

@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCd: 3
-  maxDuration: 1
+  maxDuration: 0.1
   icon: {fileID: 21300000, guid: f8bb5489880d5be409b29941b1629c5e, type: 3}
   test: 0
 --- !u!4 &135409135
@@ -881,7 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCd: 1
-  maxDuration: 0
+  maxDuration: 6
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &809436394
 Transform:
@@ -1667,8 +1667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f09a5e49ad5c1b48837a9c13a48169f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCd: 15
-  maxDuration: 0
+  maxCd: 5
+  maxDuration: 0.2
   icon: {fileID: 21300000, guid: 8dbdfd9c04ca09745b8ac052e251abda, type: 3}
   test: 0
 --- !u!4 &1257850567

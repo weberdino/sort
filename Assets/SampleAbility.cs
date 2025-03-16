@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SampleAbility : AbilityCore
 {
-    public int test; 
+    public int test;
     /*void Update()
     {
         if (AbilityManagerNew.instance.button)
@@ -17,6 +17,7 @@ public class SampleAbility : AbilityCore
         }
     }*/
 
+
     public override void use()
     {
         base.use();
@@ -24,9 +25,9 @@ public class SampleAbility : AbilityCore
         test = 10;
     }
 
-    public override void setBack()
+    public override void resetCooldown()
     {
-        base.setBack();
+        base.resetCooldown();
     }
 
     public override void resetDuration()
