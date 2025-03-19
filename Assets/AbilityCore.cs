@@ -15,7 +15,7 @@ public class AbilityCore : MonoBehaviour
 
     public bool noCooldown()
     {
-        Debug.Log(this.name + "ready:"+useable());
+        Debug.Log(this.name);
         return Time.time - currentCd >=  maxCd;
     }
 
@@ -26,6 +26,7 @@ public class AbilityCore : MonoBehaviour
 
     public bool useable()
     {
+        
         return noDuration() || noCooldown();
     }
 

@@ -6,24 +6,37 @@ public class abilityHierarchie : MonoBehaviour
 {
     public List<GameObject> hierarchies;
     public List<GameObject> always;
+    float minTimer;
+
+    public int currentAbilityIndex = 0;
 
     private void FixedUpdate()
     {
         if (AbilityManagerNew.instance.button)
         {
-            loadList();
+            if (minTimer < 0)
+            {
+                loadList(currentAbilityIndex);
+                minTimer = 1;
+            }
         }
+
+        minTimer -= Time.deltaTime;
     }
 
-    public void loadList()
+    public void loadList(int index)
     {
-
-        for (int i = 0; i < hierarchies.Count; i++)
+        for (int i = index; i < hierarchies.Count; i++)
         {
             GameObject hierarchie = hierarchies[i];
             AbilityCore ac = hierarchie.GetComponent<AbilityCore>();
+            currentAbilityIndex = i+1;
+            if(currentAbilityIndex == hierarchies.Count)
+            {
+                currentAbilityIndex = 0;
+            }
 
-            if (ac.noCooldown())
+            if (ac.useable())
             {
                 ac.use();
                 return;
