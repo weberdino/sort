@@ -35,6 +35,7 @@ public class EnemyStats : CharacterStats
     public int charge;
 
     int ran;
+    public List<Globals.CurseType> curses;
 
     public void GetStatHandler()
     {
@@ -49,13 +50,13 @@ public class EnemyStats : CharacterStats
 
     void Start()
     {
-        esh = PlayerManager.instance.esh;
-        esh.SetStat(this);
+       // esh = PlayerManager.instance.esh;
+        //esh.SetStat(this);
 
-        levelWindow = GameObject.Find("CanvasUI").GetComponentInChildren<LevelWindow>();
+       // levelWindow = GameObject.Find("CanvasUI").GetComponentInChildren<LevelWindow>();
 
-        player = PlayerManager.instance.player.GetComponent<Player>(); //GameObject.Find("Player").GetComponent<Player>();
-        playerStats = player.GetComponent<PlayerStats>();
+       // player = PlayerManager.instance.player.GetComponent<Player>(); //GameObject.Find("Player").GetComponent<Player>();
+       // playerStats = player.GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -199,7 +200,7 @@ public class EnemyStats : CharacterStats
 
         private void StartLootdrop()
         {
-        position = transform.position + new Vector3(0, 0, 0);   
+            position = transform.position + new Vector3(0, 0, 0);   
         
             foreach (var iteam in table)
             {

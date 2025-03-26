@@ -24,29 +24,6 @@ public class Enemy : Interactable
         if (playerCombat != null)
         {
             playerCombat.Attack(myStats, myType, modifier);
-            Debug.Log("normal");
-        }
-    }
-
-    public override void FireInteract()
-    {
-        base.FireInteract();
-        CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
-
-        if (playerCombat != null)
-        {
-            playerCombat.FireAttack(myStats);
-        }
-    }
-
-    public override void LightningInteract()
-    {
-        base.LightningInteract();
-        CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
-
-        if (playerCombat != null)
-        {
-            playerCombat.LightningAttack(myStats);
         }
     }
 }

@@ -58,21 +58,21 @@ public class PlayerStats : CharacterStats
 
     private void Update()
     {
-        for (int i = 0; i < parent.transform.childCount; i++)
+        /*for (int i = 0; i < parent.transform.childCount; i++)
         {
             bool active1 = eM[i] != null;
             parent.transform.GetChild(i).gameObject.SetActive(active1);
-        }
+        }*/
 
         cd -= Time.deltaTime;
 
         if(cd <= 0)
         {
-            if (player.CanUseRage())
+            /*if (player.CanUseRage())
             {
                 RageBuff(50);
                 cd = 25;
-            }
+            }*/
         }
 
         if (Input.GetKeyDown(KeyCode.T))

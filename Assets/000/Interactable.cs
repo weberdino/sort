@@ -13,26 +13,16 @@ public class Interactable : MonoBehaviour
 
     Transform player;
 
-    public EquipmentSlot equipSlot;
+    //public EquipmentSlot equipSlot;
 
-    public virtual void OnInteraction()
+    /*public virtual void OnInteraction()
     {
         //Debug.Log("interaction");//
-    }
+    }*/
 
     public virtual void Interact (CharacterStats.atkart hitType, int modifier)
     {
         //This method is meant to be overwritten
-    }
-
-    public virtual void FireInteract()
-    {
-        //override for elemental/magic Damage output
-    }
-
-    public virtual void LightningInteract()
-    {
-
     }
     void Update ()
     {
