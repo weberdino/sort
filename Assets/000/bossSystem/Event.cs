@@ -2,35 +2,41 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [Serializable]
 public class Event
 {
     public enum eventType{ move, attack};
     public eventType selectType;
-    public Animation animation;
-    public GameObject Hitbox;
+    public Animator animation;
+    public GameObject hitbox;
 
+    NavMeshAgent agent;
+    public Transform target;
 
-    public Move mover;
-    public List<Move> events = new List<Move>();
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void doEvent(EventManager em)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        animation.Play("");
+        switch (selectType)
+        {
+            case eventType.move:
+                move();
+                break;
+            case eventType.attack:
+                attack(em);
+                break;
+        }
     }
 
     void move()
     {
 
+        agent.destination = target.position;
+    }
+
+    void attack(EventManager em) 
+    {
+        em.doEvent(hitbox);
     }
 }

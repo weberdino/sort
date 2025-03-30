@@ -1,25 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class warcry : MonoBehaviour
+public class warcry : AbilityCore
 {
     public GameObject warCryPrefab;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void use()
     {
-        
+        InstantiateFunc(warCryPrefab);
+        base.use();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (AbilityManagerNew.instance.button)
-        {
-           // cast();
-        }
-    }
-
-  
 }

@@ -773,6 +773,54 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &510089883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510089884}
+  - component: {fileID: 510089885}
+  m_Layer: 0
+  m_Name: GameObject (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &510089884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510089883}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -676.527, y: -540.245, z: -10.4325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1901011496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510089885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510089883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10968b1fd685d542b1ba8ead49793ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCd: 0
+  maxDuration: 0.1
+  icon: {fileID: 0}
+  charge: 0
 --- !u!1 &522208661
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,11 +868,8 @@ MonoBehaviour:
   events:
   - selectType: 1
     animation: {fileID: 0}
-    Hitbox: {fileID: 0}
-    mover:
-      target: {fileID: 0}
-    events:
-    - target: {fileID: 0}
+    hitbox: {fileID: 0}
+    target: {fileID: 0}
 --- !u!1 &522890531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1617,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6fbb55bb43cd44093cf3692a77dec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warCryPrefab: {fileID: 0}
+  maxCd: 5
+  maxDuration: 12
+  icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  warCryPrefab: {fileID: 1639581425}
 --- !u!1 &1128779660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1639581426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,6 +2748,7 @@ Transform:
   - {fileID: 135409135}
   - {fileID: 809436394}
   - {fileID: 933304943}
+  - {fileID: 510089884}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1901011497
@@ -2714,10 +2763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efae33599189ba42ab4012ce367db50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hierarchies:
-  - {fileID: 1257850565}
-  - {fileID: 135409133}
-  - {fileID: 809436392}
   always: []
   currentAbilityIndex: 0
 --- !u!1 &1971076740

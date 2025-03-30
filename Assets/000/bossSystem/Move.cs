@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Move 
 {
-    public Transform target;
 
     // Start is called before the first frame update
     void Start()

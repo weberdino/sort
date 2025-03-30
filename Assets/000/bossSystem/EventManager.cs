@@ -5,16 +5,23 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
     public List<Event> events = new List<Event>();
+    Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+        startEvent();
     }
 
-    // Update is called once per frame
-    void Update()
+    void startEvent()
     {
-        
+        for (int i = 0; i < events.Count; i++)
+        {
+            events[i].doEvent(this);
+        }
+    }
+
+    public void doEvent(GameObject hitbox)
+    {
+        Instantiate(hitbox);
     }
 }

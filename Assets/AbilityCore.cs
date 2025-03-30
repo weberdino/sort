@@ -27,11 +27,12 @@ public class AbilityCore : MonoBehaviour
     public bool useable()
     {
         
-        return noDuration() || noCooldown();
+        return noDuration() && noCooldown();
     }
 
     public virtual void use()
     {
+        createUi();
         Debug.Log(this.name + "use");
         if (useable())
         {
@@ -43,7 +44,6 @@ public class AbilityCore : MonoBehaviour
 
     public virtual void resetDuration()
     {
-        createUi();
         currentCd = Time.time;
 
         if (imageInstance != null)
@@ -66,5 +66,11 @@ public class AbilityCore : MonoBehaviour
     public virtual void resetCooldown()
     {
         Destroy(imageInstance);
+    }
+
+    public void InstantiateFunc(GameObject obj)
+    {
+        var hitbox = Instantiate(obj);
+        hitbox.transform.position = this.transform.position;
     }
 }
