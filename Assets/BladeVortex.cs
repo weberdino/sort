@@ -1,32 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BladeVortex : AbilityCore
 {
-    public float charge;
-     
+    bool inUse;
+
     private void Update()
     {
-        if (AbilityManager.instance.buttonPressed)
+        if (AbilityManagerNew.instance.button)
+        {
+            if (noCooldown())
+            {
+                getCharge();
+            }
+           
+        }
+        else 
+        {
+            loseCharge();
+        }
+    }
+
+    void getCharge()
+    {
+        charger += .1f;
+        inUse = true;
+    }
+
+    void loseCharge()
+    {
+        if (charger > 0)
+        {
+            charger -= .1f;
+
+        }
+        else if (inUse)
         {
             use();
+            inUse = false;
         }
-        else if(charge > 0)
-        {
-            charge -= .1f;
-            //Debug.Log
-        }
-
     }
+
 
     public override void use()
     {
-        charge += 1f;
-
-        if(charge <= 0)
-        {
-            base.use();
-        }
+        base.use();
     }
 }

@@ -25,4 +25,16 @@ public class ChhargeAbility : AbilityCore
     {
         base.resetDuration();
     }
+
+    private void Update()
+    {
+        if (AbilityManagerNew.instance.button)
+        {
+            charger += .2f;
+        }
+        else if(charger > 0)
+        {
+            charger -= .2f;
+        }
+    }
 }

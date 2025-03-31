@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &135409134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +261,8 @@ MonoBehaviour:
   maxCd: 3
   maxDuration: 0.1
   icon: {fileID: 21300000, guid: f8bb5489880d5be409b29941b1629c5e, type: 3}
+  charge: 0
+  charger: 0
   test: 0
 --- !u!4 &135409135
 Transform:
@@ -799,11 +801,11 @@ Transform:
   m_GameObject: {fileID: 510089883}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -676.527, y: -540.245, z: -10.4325}
+  m_LocalPosition: {x: -0.2779541, y: -0.24499512, z: -10.4325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1901011496}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &510089885
 MonoBehaviour:
@@ -817,10 +819,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10968b1fd685d542b1ba8ead49793ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCd: 0
+  maxCd: 2
   maxDuration: 0.1
-  icon: {fileID: 0}
-  charge: 0
+  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  charge: 1
+  charger: 0
 --- !u!1 &522208661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &809436393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1128,6 +1131,8 @@ MonoBehaviour:
   maxCd: 1
   maxDuration: 6
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  charge: 0
+  charger: 0
 --- !u!4 &809436394
 Transform:
   m_ObjectHideFlags: 0
@@ -1589,7 +1594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &933304943
 Transform:
   m_ObjectHideFlags: 0
@@ -1620,6 +1625,8 @@ MonoBehaviour:
   maxCd: 5
   maxDuration: 12
   icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  charge: 0
+  charger: 0
   warCryPrefab: {fileID: 1639581425}
 --- !u!1 &1128779660
 GameObject:
@@ -1931,6 +1938,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1251803058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1251803060}
+  - component: {fileID: 1251803059}
+  m_Layer: 0
+  m_Name: GameObject (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1251803059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251803058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4429f3fff338444fb1f0646c5be7124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCd: 2
+  maxDuration: 0.1
+  icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  charge: 0
+  charger: 0
+--- !u!4 &1251803060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251803058}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2779541, y: -0.24499512, z: -10.4325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1257850565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +2003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1257850566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1963,6 +2019,8 @@ MonoBehaviour:
   maxCd: 5
   maxDuration: 0.2
   icon: {fileID: 21300000, guid: 8dbdfd9c04ca09745b8ac052e251abda, type: 3}
+  charge: 0
+  charger: 0
   test: 0
 --- !u!4 &1257850567
 Transform:
@@ -2748,7 +2806,6 @@ Transform:
   - {fileID: 135409135}
   - {fileID: 809436394}
   - {fileID: 933304943}
-  - {fileID: 510089884}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1901011497
@@ -3191,3 +3248,5 @@ SceneRoots:
   - {fileID: 1687869442}
   - {fileID: 773845660}
   - {fileID: 522208663}
+  - {fileID: 510089884}
+  - {fileID: 1251803060}

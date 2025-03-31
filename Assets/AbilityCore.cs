@@ -13,6 +13,9 @@ public class AbilityCore : MonoBehaviour
     GameObject imageInstance;
     public Sprite icon;
 
+    public bool charge;
+    public float charger;
+
     public bool noCooldown()
     {
         Debug.Log(this.name);
@@ -72,5 +75,10 @@ public class AbilityCore : MonoBehaviour
     {
         var hitbox = Instantiate(obj);
         hitbox.transform.position = this.transform.position;
+    }
+
+    private void Update()
+    {
+     
     }
 }
