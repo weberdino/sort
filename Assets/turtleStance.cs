@@ -15,7 +15,6 @@ public class turtleStance : AbilityCore, IStance
     {
         controller = StanceController.instance;
         controller.SetStance(new turtleStance());
-        Enter();       
     }
 
     public void Enter()
