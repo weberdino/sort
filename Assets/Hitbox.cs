@@ -7,6 +7,7 @@ public class Hitbox : MonoBehaviour
     //public List<Globals.CurseType> curse;
     public List<EnemyStats> enemyStats;
     public Globals.CurseType[] curseType;
+    public float radius;
 
     private void OnTriggerEnter(Collider other)
     {

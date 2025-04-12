@@ -6,6 +6,17 @@ using UnityEngine;
 public class BladeVortex : AbilityCore
 {
     bool inUse;
+    GameObject[] blades;
+
+    private void Start()
+    {
+        blades = new GameObject[transform.childCount];
+
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            blades[i] = this.transform.GetChild(i).gameObject;
+        }
+    }
 
     private void Update()
     {
@@ -14,6 +25,7 @@ public class BladeVortex : AbilityCore
             if (noCooldown())
             {
                 getCharge();
+                bladeFunc();
             }
            
         }
@@ -34,6 +46,7 @@ public class BladeVortex : AbilityCore
         if (charger > 0)
         {
             charger -= .1f;
+            bladeFunc();
 
         }
         else if (inUse)
@@ -43,6 +56,15 @@ public class BladeVortex : AbilityCore
         }
     }
 
+    void bladeFunc()
+    {
+        int activeBlades = (int)(charger / 20); // Berechnet, wie viele Blades aktiv sind
+
+        for (int i = 0; i < blades.Length; i++)
+        {
+            blades[i].SetActive(i < activeBlades);
+        }
+    }
 
     public override void use()
     {

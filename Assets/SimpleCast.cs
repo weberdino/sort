@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class warcry : AbilityCore
+public class SimpleCast : AbilityCore
 {
-    public GameObject warCryPrefab;
+    public GameObject Prefab;
+    public Animator anim;
 
     public override void use()
     {
-        InstantiateFunc(warCryPrefab);
+        InstantiateFunc(Prefab);
         //buff 
         base.use();
     }

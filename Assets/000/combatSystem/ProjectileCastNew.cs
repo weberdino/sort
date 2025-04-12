@@ -11,30 +11,28 @@ public class ProjectileCastNew : MonoBehaviour
     [Header("All Projectile Prefabs")]
 
    // int track;
-
     
     public InsideHitbox ih;
     public float manualDestroyAfter;
 
     // movementController move;
 
-    public List<GameObject> volleyParent;
-    public GameObject volleyParentAOE;
-    float cd;
+    //public List<GameObject> volleyParent;
+    //public GameObject volleyParentAOE;
 
     float countdown;
-    float countdown2;
-
     //public posUpdater Tornado;
 
-    public Animator anim;
-    public bool roundNumb;
+   // public Animator anim;
+    //public bool roundNumb;
     PlayerStats play;
     public bool AimAssist;
     public bool lookAtRotation;
 
     public int baseProj = 1;
-    public List<Quaternion> rota;
+   // public List<Quaternion> rota;
+
+    public bool modProj;
 
 
     public void SetProjectile(GameObject go)
@@ -45,6 +43,20 @@ public class ProjectileCastNew : MonoBehaviour
     public void Button(bool _pressed)
     {
        // pressed = _pressed;
+    }
+
+    int projAmount()
+    {
+        if (modProj)
+        {
+
+        }
+        else
+        {
+
+        }
+
+        return 0;
     }
 
     public void Update()
@@ -85,22 +97,24 @@ public class ProjectileCastNew : MonoBehaviour
        }
     }
 
+    [Header("Spear")]
+
     //adjust values for spear
-    public int numSpears = 5;       // Number of spears to throw
+    //public int numSpears = 5;       // Number of spears to throw
     public float spacing = 1f;      // Distance between each spear
     public Vector3 spawnOffset = Vector3.forward;
     public void ThrowSpears()
     {
-        if (numSpears <= 0) return;
+        if (projAmount() <= 0) return;
 
         Vector3 playerPosition = transform.position + spawnOffset;
 
-        int middleIndex = numSpears / 2;
+        int middleIndex = projAmount() / 2;
 
-        for (int i = 0; i < numSpears; i++)
+        for (int i = 0; i < projAmount(); i++)
         {
             float offset = (i - middleIndex) * spacing;
-            if (numSpears % 2 == 0)
+            if (projAmount() % 2 == 0)
             {
                 offset += spacing / 2f;
             }

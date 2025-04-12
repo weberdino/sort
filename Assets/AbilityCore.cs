@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class AbilityCore : MonoBehaviour 
 {
+    public bool aura;
     public float maxCd;
     float currentCd;
     public float maxDuration = .1f;
     float currentDuration;
 
-    GameObject imageInstance;
+    public GameObject imageInstance;
     public Sprite icon;
 
     public bool charge;
@@ -28,8 +29,7 @@ public class AbilityCore : MonoBehaviour
     }
 
     public bool useable()
-    {
-        
+    {       
         return noDuration() && noCooldown();
     }
 
@@ -40,30 +40,35 @@ public class AbilityCore : MonoBehaviour
         if (useable())
         {
             Debug.Log(this.name + "used");
-            currentDuration = Time.time;         
+            currentDuration = Time.time;
+            
             Invoke("resetDuration", maxDuration);
+                    
         }
     }
 
     public virtual void resetDuration()
     {
         currentCd = Time.time;
-
+        
         if (imageInstance != null)
         {
             GameObject cdInstance = Instantiate(AbilityManagerNew.instance.cdPrefab, imageInstance.transform);
             AbiliyCooldown aCd = cdInstance.GetComponent<AbiliyCooldown>();
             aCd.initiate(maxCd);
-        }
+        }    
     }
-    void createUi()
+    public void createUi()
     {
         AbilityManagerNew manager = AbilityManagerNew.instance;
         GameObject obj = manager.imagePrefab;
         imageInstance = Instantiate(obj, manager.imageParent);
         imageInstance.GetComponent<Image>().sprite = icon;
 
-        Invoke("resetCooldown", maxCd);
+        if (!aura)
+        {
+            Invoke("resetCooldown", maxCd);
+        }
     }
 
     public virtual void resetCooldown()
