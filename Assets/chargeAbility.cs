@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChhargeAbility : AbilityCore
 {
     bool activated = false;
+    float charge;
 
     public override void use()
     {
@@ -30,11 +31,11 @@ public class ChhargeAbility : AbilityCore
     {
         if (AbilityManagerNew.instance.button)
         {
-            charger += .2f;
+            charge += .2f;
         }
-        else if(charger > 0)
+        else if(charge > 0)
         {
-            charger -= .2f;
+            charge -= .2f;
         }
     }
 }

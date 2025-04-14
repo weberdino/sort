@@ -7,6 +7,7 @@ public class BladeVortex : AbilityCore
 {
     bool inUse;
     GameObject[] blades;
+    float charge;
 
     private void Start()
     {
@@ -37,15 +38,15 @@ public class BladeVortex : AbilityCore
 
     void getCharge()
     {
-        charger += .1f;
+        charge += .1f;
         inUse = true;
     }
 
     void loseCharge()
     {
-        if (charger > 0)
+        if (charge > 0)
         {
-            charger -= .1f;
+            charge -= .1f;
             bladeFunc();
 
         }
@@ -58,7 +59,7 @@ public class BladeVortex : AbilityCore
 
     void bladeFunc()
     {
-        int activeBlades = (int)(charger / 20); // Berechnet, wie viele Blades aktiv sind
+        int activeBlades = (int)(charge / 20); // Berechnet, wie viele Blades aktiv sind
 
         for (int i = 0; i < blades.Length; i++)
         {

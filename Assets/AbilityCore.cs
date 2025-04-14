@@ -14,8 +14,6 @@ public class AbilityCore : MonoBehaviour
     public GameObject imageInstance;
     public Sprite icon;
 
-    public bool charge;
-    public float charger;
 
     public bool noCooldown()
     {
@@ -36,7 +34,6 @@ public class AbilityCore : MonoBehaviour
     public virtual void use()
     {
         createUi();
-        Debug.Log(this.name + "use");
         if (useable())
         {
             Debug.Log(this.name + "used");
@@ -76,14 +73,14 @@ public class AbilityCore : MonoBehaviour
         Destroy(imageInstance);
     }
 
-    public void InstantiateFunc(GameObject obj)
+    /*public void InstantiateFunc(GameObject obj)
     {
         var hitbox = Instantiate(obj);
         hitbox.transform.position = this.transform.position;
-    }
+    }*/
 
-    private void Update()
+    public void stanceDisable()
     {
-     
+        gameObject.SetActive(false);
     }
 }

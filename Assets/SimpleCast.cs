@@ -10,7 +10,8 @@ public class SimpleCast : AbilityCore
 
     public override void use()
     {
-        InstantiateFunc(Prefab);
+        var hitbox = Instantiate(Prefab);
+        hitbox.transform.position = this.transform.position;
         //buff 
         base.use();
     }

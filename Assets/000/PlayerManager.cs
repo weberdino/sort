@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     float time;
 
-    public GetnearestEnemy enemyTracker;
+    public GetNearestEnemy enemyTracker;
     public posUpdater posUpdater;
 
     private void Update()

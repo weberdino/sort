@@ -9,7 +9,8 @@ public class warcry : AbilityCore
 
     public override void use()
     {
-        InstantiateFunc(warCryPrefab);
+        var hitbox = Instantiate(warCryPrefab);
+        hitbox.transform.position = this.transform.position;
         //buff 
         base.use();
     }

@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeditateStance : MonoBehaviour
+public class MeditateStance : AbilityCore, IStance
 {
-    // Start is called before the first frame update
-    void Start()
+    public Animator anim;
+    StanceController controller;
+
+    void OnEnable()
     {
-        
+        controller = StanceController.instance;
+        controller.SetStance(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Enter()
     {
-        
+        createUi();
+    }
+
+    public void Exit()
+    {
+        PlayerManager.instance.player.GetComponent<PlayerStats>().Str.RemoveModifier(15);
+        Destroy(imageInstance);
+        gameObject.SetActive(false);
     }
 }

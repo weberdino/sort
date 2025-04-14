@@ -28,9 +28,7 @@ public class Hitbox : MonoBehaviour
             foreach (Globals.CurseType cType in curseType)
             {
                 EnemyStats eStats = nearbyObject.GetComponent<EnemyStats>();
-                if (eStats != null) { eStats.curses.Add(cType); }
-                
-                
+                if (eStats != null) { eStats.curses.Add(cType); }               
             }
 
             Interactable dest = nearbyObject.GetComponent<Interactable>();

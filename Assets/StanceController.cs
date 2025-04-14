@@ -2,23 +2,24 @@ using UnityEngine;
 
 public class StanceController : MonoBehaviour
 {
-    public static StanceController instance; // Singleton-Instanz des StanceControllers
-
-    private IStance currentStance; // Die aktuell aktive Stance
-
+    #region Singletion
+    public static StanceController instance;
+    private IStance currentStance;
     private void Awake()
     {
         instance = this;
     }
+    #endregion Singleton
+
 
     public void SetStance(IStance newStance)
     {
         if (currentStance != null)
         {
-            currentStance.Exit(); // Die alte Stance verlassen
+            currentStance.Exit(); 
         }
 
-        currentStance = newStance; // Die neue Stance setzen
-        currentStance.Enter(); // Die neue Stance aktivieren
+        currentStance = newStance;
+        currentStance.Enter();
     }
 }
