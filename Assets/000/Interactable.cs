@@ -20,7 +20,7 @@ public class Interactable : MonoBehaviour
         //Debug.Log("interaction");//
     }*/
 
-    public virtual void Interact (CharacterStats.atkart hitType, int modifier)
+    public virtual void Interact (CharacterStats.atkart hitType, int modifier, GameObject obj)
     {
         //This method is meant to be overwritten
     }
@@ -34,7 +34,7 @@ public class Interactable : MonoBehaviour
 
             if (distance <= radius)
             {
-                    Interact(CharacterStats.atkart.hit, 1);
+                    Interact(CharacterStats.atkart.hit, 1, null);
                     hasInteracted = true;
             }                           
         }

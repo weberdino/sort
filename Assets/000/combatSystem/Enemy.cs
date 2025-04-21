@@ -16,9 +16,9 @@ public class Enemy : Interactable
     }
 
     // override to deal damage on Enemys
-    public override void Interact(CharacterStats.atkart myType, int modifier)
+    public override void Interact(CharacterStats.atkart myType, int modifier, GameObject obj)
     {
-        base.Interact(myType, modifier);
+        base.Interact(myType, modifier, obj);
         CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
 
         if (playerCombat != null)

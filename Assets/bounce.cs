@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class bounce : MonoBehaviour
+public class Bounce : MonoBehaviour, ITarget
 {
-    GetNearestEnemy getNearest;
+    //GetNearestEnemy getNearest;
+    Transform targetEnemy;
 
     private Vector3 endPos;
     public float jumpHeight = 5f;    // Einstellbare Höhe des Sprungs
@@ -15,15 +16,22 @@ public class bounce : MonoBehaviour
 
     public GameObject explovfx;
     public Vector3 offset;
+
+    public void Init(GetNearestEnemy target)
+    {
+        targetEnemy = target.closestEnemy.transform;
+        Leap();
+    }
+
     void Awake()
     {
-        getNearest = transform.parent.GetComponentInChildren<GetNearestEnemy>();
-        Leap();
+       // getNearest = transform.parent.GetComponentInChildren<GetNearestEnemy>();
+       // Leap();
     }
 
     void Leap()
     {
-        endPos = getNearest.closestEnemy.transform.position + adjustEnd;
+        endPos = targetEnemy.position + adjustEnd;
         StartCoroutine(LeapMotion(PlayerManager.instance.player));
     }
 
@@ -38,13 +46,10 @@ public class bounce : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / duration;
 
-            // Parabelbewegung mit Sinuskurve für die Höhe
             transform.position = Vector3.Lerp(startPos, endPos, t) + new Vector3(0, jumpHeight * Mathf.Sin(t * Mathf.PI), 0);
-
             yield return null;
         }
 
-        // Endposition sicherstellen
         var obj = Instantiate(explovfx, PlayerManager.instance.player.transform.position, Quaternion.identity);
         obj.transform.position += offset;
         obj.transform.localScale = obj.transform.localScale * 1.5f;

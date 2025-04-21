@@ -17,7 +17,6 @@ public class SampleAbility : AbilityCore
         }
     }*/
 
-
     public override void use()
     {
         base.use();

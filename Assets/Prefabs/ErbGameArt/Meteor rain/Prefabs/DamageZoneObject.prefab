@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6299002842773819439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6299002842773819438}
+  - component: {fileID: 6299002842773819411}
+  - component: {fileID: 6299002842773819408}
+  - component: {fileID: 6299002842773819409}
+  m_Layer: 0
+  m_Name: DamageZoneObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6299002842773819438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299002842773819439}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 7.6172085, y: 7.6172104, z: 7.6172104}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &6299002842773819411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299002842773819439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d5d9d11b2f7a64f902db9910130d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 0
+  damage:
+    baseValue: 5
+  fireDamage:
+    baseValue: 0
+  lightningDamage:
+    baseValue: 0
+  GlobalCD:
+    baseValue: 0
+  armor:
+    baseValue: 0
+  fireResistance:
+    baseValue: 0
+  lightningResistance:
+    baseValue: 0
+  mSpeed:
+    baseValue: 0
+  mSpeedPerc:
+    baseValue: 0
+  multiHit:
+    baseValue: 0
+  critChance:
+    baseValue: 0
+  critMultiplier:
+    baseValue: 0
+  bleedChance:
+    baseValue: 0
+  attackSpeed:
+    baseValue: 0
+  hpRegeneration:
+    baseValue: 0
+  lifeSteal:
+    baseValue: 0
+  exeDamage:
+    baseValue: 0
+  hitrate:
+    baseValue: 0
+  dodge:
+    baseValue: 0
+  block:
+    baseValue: 0
+  projectileMod:
+    baseValue: 0
+  cooldownMod:
+    baseValue: 0
+  minionMod:
+    baseValue: 0
+  Str:
+    baseValue: 0
+  Dex:
+    baseValue: 0
+  Int:
+    baseValue: 0
+  damageMultiplier:
+    baseValue: 0
+  amplifier:
+    baseValue: 0
+  aoeMod:
+    baseValue: 0
+  cooldownReduce:
+    baseValue: 0
+  hpMultiplier:
+    baseValue: 0
+  armorMultiplier:
+    baseValue: 0
+  Pierce: 0
+  Chain: 0
+  Stun: 0
+  Blind: 0
+  Weakness: 0
+  heat: 0
+  freeze: 0
+  stagger: 0
+  conduction: 0
+  Dynamit: 0
+  CurseEfficency:
+    baseValue: 0
+  forEnemy: 1
+  atkarts: 1
+  es: []
+--- !u!135 &6299002842773819408
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299002842773819439}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.3
+  m_Center: {x: 0, y: 0, z: 0.12878728}
+--- !u!114 &6299002842773819409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299002842773819439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f384e0953af6c4bb99b92629a197fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

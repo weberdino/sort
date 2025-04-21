@@ -52,15 +52,6 @@ public class GetNearestEnemy : AbilityCore
         }
     }
 
-    public override void use()
-    {
-        if (useable())
-        {
-            Instantiate(prefab, transform.parent);
-        }
-        base.use();
-    }
-
     private void SortEnemiesByDistance()
     {
         sortedEnemies = enemiesInRange

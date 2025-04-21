@@ -5,14 +5,27 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     //public List<Globals.CurseType> curse;
-    public List<EnemyStats> enemyStats;
+    public List<Interactable> interactables;
+    public CharacterStats.atkart atkart;
     public Globals.CurseType[] curseType;
-    public float radius;
+   // public float radius;
+    public bool isDirty;
 
     private void OnTriggerEnter(Collider other)
     {
-        EnemyStats eStats = other.GetComponent<EnemyStats>();
-        enemyStats.Add(eStats);
+        if(other.GetComponent<Interactable>() != null)
+        {
+            Interactable eStats = other.GetComponent<Interactable>();
+            interactables.Add(eStats);
+        }
+    }
+
+    void castCollider()
+    {
+        for (int i = 0; i < interactables.Count; i++)
+        {
+            interactables[i].Interact(atkart, 1, gameObject);
+        }
     }
 
     private void OnEnable()
@@ -34,7 +47,7 @@ public class Hitbox : MonoBehaviour
             Interactable dest = nearbyObject.GetComponent<Interactable>();
             if (dest != null)
             {
-                dest.Interact(CharacterStats.atkart.hit, 1); //((int)pStats.modifier
+                dest.Interact(atkart, 1, gameObject); //((int)pStats.modifier
             }
         }
     }

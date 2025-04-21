@@ -129,7 +129,7 @@ public class cyclone : MonoBehaviour
             Interactable dest = nearbyObject.GetComponent<Interactable>();
             if (dest != null)
             {
-                dest.Interact(CharacterStats.atkart.hit, ((int)pStats.modifier));
+                dest.Interact(CharacterStats.atkart.hit, ((int)pStats.modifier), gameObject);
                 float val = pStats.attackSpeed.GetValue();
                 countdown = 1f / (1 + val / 100);
             }
