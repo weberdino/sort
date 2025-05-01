@@ -10,6 +10,9 @@ public class Hitbox : MonoBehaviour
     public Globals.CurseType[] curseType;
    // public float radius;
     public bool isDirty;
+    [Header("Particles")]
+    public GameObject vfx;
+    public float delay;
 
     private void OnTriggerEnter(Collider other)
     {

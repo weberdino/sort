@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class HitboxCast : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject hitbox;
+    public AnimationClip animation;
+    AnimationHandle ah;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (AbilityManagerNew.instance.button)
+        {
+            cast();
+        }
+    }
+
+    void cast()
+    {
+        ah.Play(animation);
+        var obj = Instantiate(hitbox, transform);
+        Destroy(obj, 2);
     }
 }
