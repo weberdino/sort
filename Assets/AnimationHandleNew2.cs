@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Animations;
 
-public class AnimationHandleNewNew : MonoBehaviour
+public class AnimationHandleNew2 : MonoBehaviour
 {
     private PlayableGraph graph;
     private AnimationPlayableOutput output;
@@ -12,7 +12,7 @@ public class AnimationHandleNewNew : MonoBehaviour
     private Animator animator;
 
     private AnimationLayerMixerPlayable layerMixer;
-    public AvatarMask upperBodyMask;
+    //public AvatarMask upperBodyMask;
     void Awake()
     {
         animator = GetComponentInParent<Animator>();
@@ -35,7 +35,7 @@ public class AnimationHandleNewNew : MonoBehaviour
         output.SetSourcePlayable(layerMixer);
         graph.Connect(runPlayable, 0, layerMixer, 0);
         layerMixer.SetInputWeight(0, 1f);
-        layerMixer.SetLayerMaskFromAvatarMask(1, upperBodyMask);
+        //layerMixer.SetLayerMaskFromAvatarMask(1, upperBodyMask); //zum testen auskommentiert, wichtige avatarmask eig
 
         graph.Play();
         PlaySwordSwing();

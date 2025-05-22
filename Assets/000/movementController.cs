@@ -20,7 +20,7 @@ public class movementController : MonoBehaviour
 
     public Transform cam;
 
-    public AnimationHandleNew animation;
+    public AnimationHandleLoop animation;
     bool wasWalking;
 
     GameObject ability;
@@ -79,7 +79,7 @@ public class movementController : MonoBehaviour
     {
         if (!wasWalking)
         {
-            animation.Play();
+            animation.Play(1);
             wasWalking = true;
         }
         
@@ -90,7 +90,7 @@ public class movementController : MonoBehaviour
        
         if (wasWalking)
         {
-            animation.Idle();
+            animation.Play(0);
             wasWalking = false;
         }
     }

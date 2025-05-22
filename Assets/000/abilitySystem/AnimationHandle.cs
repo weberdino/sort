@@ -25,6 +25,7 @@ public class AnimationHandle : MonoBehaviour
 
     public void Play(AnimationClip clip)
     {
+        Debug.Log("test");
         if (currentPlayable.IsValid())
         {
             currentPlayable.Destroy();
