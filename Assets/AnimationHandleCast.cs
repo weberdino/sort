@@ -39,7 +39,7 @@ public class AnimationHandleCast : MonoBehaviour
             currentClipPlayable.Destroy();
         }
 
-        currentClip = clip;
+       // currentClip = clip;
 
         currentClipPlayable = AnimationClipPlayable.Create(playableGraph, clip);
         currentClipPlayable.SetApplyFootIK(true);

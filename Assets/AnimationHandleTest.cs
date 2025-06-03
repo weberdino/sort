@@ -1,77 +1,101 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Animations;
+using System.Collections;
 
 public class AnimationHandleTest : MonoBehaviour
 {
     private PlayableGraph graph;
     private AnimationPlayableOutput output;
-    private AnimationMixerPlayable mixer;
+
+    private AnimationClipPlayable walkPlayable;
+    private AnimationClipPlayable attackPlayable;
+
+    private AnimationLayerMixerPlayable layerMixer;
+
+    public AnimationClip walkClip;
+    public AvatarMask upperBodyMask;
+
     private Animator animator;
 
-
-    private Dictionary<string, (AnimationClipPlayable playable, int index)> playables = new();
-
-    private void Start()
+    void Awake()
     {
-        animator = GetComponent<Animator>();
-        graph = PlayableGraph.Create("AnimGraph");
-        output = AnimationPlayableOutput.Create(graph, "Output", animator);
-        mixer = AnimationMixerPlayable.Create(graph, 1, true);
-        output.SetSourcePlayable(mixer);
-    }
+        animator = GetComponentInParent<Animator>();
+        graph = PlayableGraph.Create("ComboGraph");
+        output = AnimationPlayableOutput.Create(graph, "Animation", animator);
 
-    public void AddClip(string name, AnimationClip clip)
-    {
-        if (playables.ContainsKey(name)) return;
+        // 2 Layer: 0 = walk, 1 = attack
+        layerMixer = AnimationLayerMixerPlayable.Create(graph, 2);
+        output.SetSourcePlayable(layerMixer);
 
-        var playable = AnimationClipPlayable.Create(graph, clip);
-        int inputIndex = playables.Count;
-        //mixer.SetInputCount(inputIndex + 1);
-        graph.Connect(playable, 0, mixer, inputIndex);
-        mixer.SetInputWeight(inputIndex, 1);
+        // Walk Layer
+        walkPlayable = AnimationClipPlayable.Create(graph, walkClip);
+        walkPlayable.SetApplyFootIK(true);
 
-        playables.Add(name, (playable, inputIndex));
+        walkClip.wrapMode = WrapMode.Loop;
+        graph.Connect(walkPlayable, 0, layerMixer, 0);
+        layerMixer.SetInputWeight(0, 1f);
+
+        // Initial dummy attack playable (wird später ersetzt)
+        attackPlayable = AnimationClipPlayable.Create(graph, walkClip); // Dummy
+        graph.Connect(attackPlayable, 0, layerMixer, 1);
+        layerMixer.SetInputWeight(1, 0f);
+
+        if (upperBodyMask != null)
+        {
+            layerMixer.SetLayerMaskFromAvatarMask(1, upperBodyMask);
+        }
 
         graph.Play();
     }
 
-    public void Play(string name)
+    public void PlayAttack(AnimationClip clip)
     {
-        Debug.Log(!playables.ContainsKey(name));
-        if (!playables.ContainsKey(name)) return;
+        if (clip == null) return;
 
-        StartCoroutine(BlendTo(name));
-    }
-
-    private IEnumerator BlendTo(string name)
-    {
-        int targetInput = 0;
-
-        float duration = 0.1f;
-        float time = 0f;
-
-        float[] startWeights = new float[mixer.GetInputCount()];
-        for (int i = 0; i < startWeights.Length; i++)
-            startWeights[i] = mixer.GetInputWeight(i);
-
-        while (time < duration)
+        if (attackPlayable.IsValid())
         {
-            time += Time.deltaTime;
-            float t = time / duration;
-
-            for (int i = 0; i < mixer.GetInputCount(); i++)
-            {
-                float target = i == targetInput ? 1f : 0f;
-                mixer.SetInputWeight(i, Mathf.Lerp(startWeights[i], target, t));
-            }
-
-            yield return null;
+            graph.Disconnect(attackPlayable, 0);
+            attackPlayable.Destroy();
         }
 
-        for (int i = 0; i < mixer.GetInputCount(); i++)
-            mixer.SetInputWeight(i, i == targetInput ? 1f : 0f);
+        attackPlayable = AnimationClipPlayable.Create(graph, clip);
+        attackPlayable.SetApplyFootIK(true);
+        attackPlayable.SetDuration(clip.length);
+        attackPlayable.SetTime(0);
+        attackPlayable.SetSpeed(1);
+
+        graph.Connect(attackPlayable, 0, layerMixer, 1);
+        layerMixer.SetInputWeight(1, 1f);
+
+        StartCoroutine(ResetAttackLayerAfterClip(clip.length));
+    }
+
+    private IEnumerator ResetAttackLayerAfterClip(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        layerMixer.SetInputWeight(1, 0f);
+    }
+
+    public void ReloadWalk(AnimationClip newWalk)
+    {
+        if (walkPlayable.IsValid())
+        {
+            graph.Disconnect(walkPlayable, 0);
+            walkPlayable.Destroy();
+        }
+
+        walkClip = newWalk;
+        walkPlayable = AnimationClipPlayable.Create(graph, walkClip);
+        walkPlayable.SetApplyFootIK(true);
+        //walkPlayable.SetLoopTime(true);
+
+        graph.Connect(walkPlayable, 0, layerMixer, 0);
+        layerMixer.SetInputWeight(0, 1f);
+    }
+
+    void OnDestroy()
+    {
+        graph.Destroy();
     }
 }

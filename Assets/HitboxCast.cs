@@ -11,6 +11,7 @@ public class HitboxCast : AbilityCore
    // public AnimationHandleNew2 ah;
     //public AnimationHandelFInal test;
     public  AnimationHandleCast aht;
+    public AnimationHandleLoop ahl;
 
     private void Awake()
     {
@@ -31,7 +32,9 @@ public class HitboxCast : AbilityCore
 
     void cast()
     {
-        aht.PlayAbilityAnimation( animation);
+        ahl.PlayAbilityAnimation(animation);
+        Invoke("stop", 1f);
+        //aht.PlayAbilityAnimation( animation);
         //anim.Play(2);
         //ah.PlaySwordSwing();
         // test.PlayClip("test");
@@ -39,5 +42,10 @@ public class HitboxCast : AbilityCore
         //aht.Play("test");
         var obj = Instantiate(hitbox, transform);
         Destroy(obj, 2);
+    }
+
+    void stop()
+    {
+        ahl.StopAbility();
     }
 }

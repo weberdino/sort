@@ -7,22 +7,22 @@ AvatarMask:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: trickster
-  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_Elements:
   - m_Path: 
     m_Weight: 1
   - m_Path: _armourobj
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: aatrickster
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ikFootR
     m_Weight: 0
   - m_Path: Armature/ikFootR/ikFootR_end
     m_Weight: 0
   - m_Path: Armature/mixamorig:Hips
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/mixamorig:Hips/mixamorig:LeftUpLeg
     m_Weight: 0
   - m_Path: Armature/mixamorig:Hips/mixamorig:LeftUpLeg/mixamorig:LeftLeg
