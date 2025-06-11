@@ -33,7 +33,7 @@ public class HitboxCast : AbilityCore
     void cast()
     {
         ahl.PlayAbilityAnimation(animation);
-        Invoke("stop", 1f);
+        Invoke("stop", 2f);
         //aht.PlayAbilityAnimation( animation);
         //anim.Play(2);
         //ah.PlaySwordSwing();

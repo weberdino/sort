@@ -19,7 +19,6 @@ public class SimpleCast : AbilityCore
     public override void resetDuration()
     {
         //reset buff
-
         //base.resetDuration();
     }
 }

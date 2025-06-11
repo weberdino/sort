@@ -39,8 +39,7 @@ public class AbilityCore : MonoBehaviour
             Debug.Log(this.name + "used");
             currentDuration = Time.time;
             
-            Invoke("resetDuration", maxDuration);
-                    
+            Invoke("resetDuration", maxDuration);                   
         }
     }
 
@@ -50,6 +49,8 @@ public class AbilityCore : MonoBehaviour
         
         if (imageInstance != null)
         {
+            Debug.Log(gameObject.name);
+            //
             GameObject cdInstance = Instantiate(AbilityManagerNew.instance.cdPrefab, imageInstance.transform);
             AbiliyCooldown aCd = cdInstance.GetComponent<AbiliyCooldown>();
             aCd.initiate(maxCd);
@@ -57,6 +58,8 @@ public class AbilityCore : MonoBehaviour
     }
     public void createUi()
     {
+        Debug.Log(this.name);
+        //
         AbilityManagerNew manager = AbilityManagerNew.instance;
         GameObject obj = manager.imagePrefab;
         imageInstance = Instantiate(obj, manager.imageParent);

@@ -47,7 +47,10 @@ public class GetNearestEnemy : AbilityCore
                 closestEnemy = enemy;
                 target.transform.parent = closestEnemy.transform;
                 target.transform.localPosition = Vector3.zero;
-                use();
+                if (useable())
+                {
+                    use();
+                }             
             }
         }
     }

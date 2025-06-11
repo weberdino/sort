@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AutoOnTrigger : GetNearestEnemy
 {
-
     public override void use()
     {
         if (useable())
