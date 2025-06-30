@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ca315b8eabbc674196cc99ccf0b6855, type: 3}
-  m_Name: fireBreath
+  m_Name: offensiveStance
   m_EditorClassIdentifier: 
-  tx: get the defaultAttack fireBreath
-  unlockable: {fileID: 6917757400545002949, guid: 7aa74f6acec398b40899aaf4dccfb4d7, type: 3}
-  img: {fileID: 21300000, guid: c4c1ab7e9969ef343bd19c8c3b67e577, type: 3}
+  tx: increase
+  unlockable: {fileID: 8731185182394422242, guid: 7cfd63e3c0ec77b4c8b1f6b8a895f02b, type: 3}
+  img: {fileID: 21300000, guid: 7d3c98f655a7b0a4d86147ae12e159f2, type: 3}
+  mainAbility: 0

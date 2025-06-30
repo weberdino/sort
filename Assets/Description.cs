@@ -11,15 +11,25 @@ public class Description : MonoBehaviour
     public Image img;
     public GameObject skill;
     public Transform parent;
+    bool mainAbility;
+    public MainAbilitySelector mainAbilitySelector;
     public void showDescription(descriptionObject obj)
     {
         text.text = obj.tx;
         img.sprite = obj.img;
         skill = obj.unlockable;
+        mainAbility = obj.mainAbility;
     }
 
     public void Instantiation()
     { 
-        Instantiate(skill, parent);
+        if(!mainAbility)
+        {
+            Instantiate(skill, parent);
+        }
+        else
+        {
+            mainAbilitySelector.addAbility(skill.transform); 
+        }
     }
 }

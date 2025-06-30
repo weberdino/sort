@@ -109,8 +109,16 @@ public class Equipment : Item//, IDataPersistance
     public List<int> modifiers = new List<int>();
     public List<string> names = new List<string>();  
 
+    void useTest()
+    {
+        base.Use();
+        RemoveFromInventory();
+        EquipmentManager.instance.Equip(this);
+    }
+
     public override void Use()
     {
+        useTest();
         if (GameVariables.Dex >= Dex_Requirement)
         {
             if (GameVariables.Str >= Str_Requirement)
@@ -239,7 +247,7 @@ public class Equipment : Item//, IDataPersistance
     }
     public void RemoveFromInventory()
     {
-        //Inventory.instance.Remove(this);
+        Inventory.instance.Remove(this);
     }
 
     public void SetLevelSystem(LevelSystem levelSystem)

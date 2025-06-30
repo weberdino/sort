@@ -20,7 +20,7 @@ public class movementController : MonoBehaviour
 
     public Transform cam;
 
-    public AnimationHandleLoop animation;
+    public AnimationHandleLoop[] animation;
     bool wasWalking;
 
     GameObject ability;
@@ -79,10 +79,13 @@ public class movementController : MonoBehaviour
     {
         if (!wasWalking)
         {
-            animation.Play(1);
-            wasWalking = true;
+            foreach (AnimationHandleLoop ahl in animation)
+            {
+                ahl.Play(1);
+                wasWalking = true;
+            }
         }
-        
+
     }
 
     void onStop()
@@ -90,8 +93,12 @@ public class movementController : MonoBehaviour
        
         if (wasWalking)
         {
-            animation.Play(0);
-            wasWalking = false;
+            foreach (AnimationHandleLoop ahl in animation)
+            {
+                ahl.Play(0);
+                wasWalking = false;
+            }
+            
         }
     }
 

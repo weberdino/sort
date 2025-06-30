@@ -10,12 +10,12 @@ public class HitboxCast : AbilityCore
     //public AnimationHandle ah;
    // public AnimationHandleNew2 ah;
     //public AnimationHandelFInal test;
-    public  AnimationHandleCast aht;
+    //public  AnimationHandleCast aht;
     public AnimationHandleLoop ahl;
 
     private void Awake()
     {
-        
+        ahl = PlayerManager.instance.player.GetComponentInChildren<AnimationHandleLoop>();
     }
 
     void Update()

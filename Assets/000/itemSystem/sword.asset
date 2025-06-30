@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa84c36ff9921146bc1d9f68af8ed25, type: 3}
+  m_Name: sword
+  m_EditorClassIdentifier: 
+  name: Sword
+  icon: {fileID: 0}
+  isDefaultItem: 0
+  Description: 
+  equipSlot: 2
+  wType: 0
+  ability: {fileID: 0}
+  mesh: {fileID: 0}
+  text: {fileID: 0}
+  cType: 0
+  addProjectiles: 0
+  damageModifier: 0
+  fireDamageModifier: 0
+  lightningDamageModifier: 0
+  burnModifier: 0
+  chargedModifier: 0
+  mSpeedModifier: 0
+  critChanceModifier: 0
+  multiHitModifier: 0
+  bleedChanceModifier: 0
+  attackSpeedModifier: 0
+  maxHealthModifier: 0
+  armorModifier: 0
+  hpRegeneration: 0
+  fireResistanceModifier: 0
+  lightningResistanceModifier: 0
+  hpMultiplier: 0
+  armorMultiplier: 0
+  regenerationMultiplier: 0
+  damageMultiplier: 0
+  attackSpeedMultiplier: 0
+  fireMultiplier: 0
+  lightningMultiplier: 0
+  amplifyModifier: 0
+  critMultiplierModifier: 0
+  lSteal: 0
+  Strength: 0
+  Dexterity: 0
+  Intelligence: 0
+  doubleStat: 0
+  Dex_Requirement: 0
+  Str_Requirement: 0
+  Int_Requirement: 0
+  levelRequirement: 0
+  unique: 0
+  Chain: 0
+  Pierce: 0
+  Return: 0
+  Thorns: 0
+  focus: 0
+  disperse: 0
+  crafted: 0
+  modifiers: 
+  names: []

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca315b8eabbc674196cc99ccf0b6855, type: 3}
+  m_Name: fireBreath
+  m_EditorClassIdentifier: 
+  tx: get the defaultAttack fireBreath
+  unlockable: {fileID: 6917757400545002949, guid: 7aa74f6acec398b40899aaf4dccfb4d7, type: 3}
+  img: {fileID: 21300000, guid: c4c1ab7e9969ef343bd19c8c3b67e577, type: 3}
+  mainAbility: 1

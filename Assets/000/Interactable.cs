@@ -15,12 +15,12 @@ public class Interactable : MonoBehaviour
 
     //public EquipmentSlot equipSlot;
 
-    /*public virtual void OnInteraction()
+    public virtual void OnInteraction() // item
     {
         //Debug.Log("interaction");//
-    }*/
+    }
 
-    public virtual void Interact (CharacterStats.atkart hitType, int modifier, GameObject obj)
+    public virtual void Interact (CharacterStats.atkart hitType, int modifier, GameObject obj) // combat
     {
         //This method is meant to be overwritten
     }
